@@ -1,0 +1,18 @@
+import express from "express";
+import cors from "cors";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/health", (req, res) => {
+      console.log("Health route hit");
+
+  res.status(200).json({
+    status: "ok",
+    message: "Postly API is running",
+  });
+});
+
+export default app;
